@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20130329045925) do
   create_table "ramals", :force => true do |t|
     t.string   "number"
     t.string   "name"
+    t.string   "local"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

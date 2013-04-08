@@ -9,8 +9,6 @@ class SearchController < ApplicationController
   end
   
   def search_ramal 
-    p "tentando obter um ramal"
-    p params[:busca]
     lista = Ramal.search_by_name(params[:busca])
     render json: lista
   end

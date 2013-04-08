@@ -204,6 +204,8 @@
 	text-align: center;
 	overflow: visible; /* removes extra width in IE */
 }
+
+
 .ui-button,
 .ui-button:link,
 .ui-button:visited,

@@ -7,6 +7,9 @@ Ramais::Application.routes.draw do
   get "search/index"
   
   post "search/search_ramal"
+  
+  post "ramal/update"
+  post "ramal/list"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

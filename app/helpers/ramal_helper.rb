@@ -1,0 +1,2 @@
+module RamalHelper
+end

@@ -6,7 +6,7 @@
 $(document).ready ->
   $('#term').autocomplete({source: "/search/find"});
   
-  
+
 
 
 

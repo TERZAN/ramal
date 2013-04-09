@@ -3,13 +3,15 @@ Ramais::Application.routes.draw do
   root :to => 'search#index'
 
   get "search/find"
-  
   get "search/index"
-  
+
+  #itens to edit
+  get "ramal/list"
+
   post "search/search_ramal"
   
   post "ramal/update"
-  post "ramal/list"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

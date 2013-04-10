@@ -7,6 +7,8 @@ Ramais::Application.routes.draw do
 
   #itens to edit
   get "ramal/list"
+  get "ramal/update"
+  get "ramal/requestramal"
 
   post "search/search_ramal"
   

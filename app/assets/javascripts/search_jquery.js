@@ -50,16 +50,34 @@ $.build_result_edit = function(json) {
 };
 
 $(document).on("click", ".btn-info", function() {
-	//console.log("ok " + $(this).attr('id'));
-	//$('#id_div_editmodal').addClass('modal modal-big');
-	$("#id_div_editmodal").modal();
-
+	var url_request = "/ramal/requestramal"
+	$("#id_div_editmodal").modal();	
+	$.ajax({
+        url: url_request, 
+        data: {id:$(this).attr("id")},
+        dataType: "JSON", 
+        type: "GET"
+    }).success(function(json){
+    	console.log(json);
+        $("#id_input_name").attr("value",json.name);
+        $("#id_input_local").attr("value",json.local);
+        $("#id_input_number").attr("value",json.number);
+        $("#id_input_id").attr("value",json.id);
+    });
 });
 
 $("#id_button_submit").click(function() {
-	$("#id_button_submit").submit();
-});
-
-$('#id_form_ramal_update').submit(function() {
-	console.log("Submetendo formulario");
+	var url_update = "/ramal/update";
+	//$("#id_form_ramal_update").submit();
+	var elements = $("#id_form_ramal_update").serialize();
+	console.log(elements);
+	$.ajax({
+        url: url_update, 
+        //data: {name: $("id_input_name").val(), number: $("id_input_number").val(), local: $("id_input_local").val()},
+        data: elements,
+        dataType: "JSON", 
+        type: "POST"
+    }).success(function(json){
+        console.log("Requisicao enviada com sucesso");
+    });
 });

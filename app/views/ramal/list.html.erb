@@ -42,24 +42,25 @@
 	</div>
 	
 	<div class="modal-body">
-
 		<form class="form-horizontal" id="id_form_ramal_update"> 
 			<div class="control-group">
-				<label class="control-label" for="id_input_name">Nome</label>
+				<input name="ramal[id]" id="id_input_id" type="hidden" placeholder="Nome" value="" />
+
+				<label class="control-label" for="name">Nome</label>
 				<div class="controls">
-					<input id="id_input_name" type="text" placeholder="Nome">
+					<input name="ramal[name]" id="id_input_name" type="text" placeholder="Nome" value=""/>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="id_input_number">Numero</label>
+				<label class="control-label" for="number">Numero</label>
 				<div class="controls">
-					<input id="id_input_number" type="text" placeholder="Ramal">
+					<input id="id_input_number" name="ramal[number]" type="text" placeholder="Ramal" value=""/>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="id_input_local">Local</label>
+				<label class="control-label" for="local">Local</label>
 				<div class="controls">
-					<input id="id_input_local" type="text" placeholder="Local">
+					<input id="id_input_local" name="ramal[local]" type="text" placeholder="Local" value=""/>
 				</div>
 			</div>
 		</form>

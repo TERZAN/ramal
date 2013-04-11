@@ -14,6 +14,8 @@ Ramais::Application.routes.draw do
   
   post "ramal/update"
   
+  delete "ramal/deleteramal"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

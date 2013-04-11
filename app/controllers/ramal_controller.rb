@@ -18,4 +18,13 @@ class RamalController < ApplicationController
       	end
 	end 
 
+	def deleteramal
+		@ramal = Ramal.find(params[:id])
+		@ramal.destroy
+
+		respond_to do |format|
+      		format.json { render json: "true" }
+      	end
+	end
+
 end

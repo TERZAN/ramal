@@ -1,5 +1,5 @@
 class Ramal < ActiveRecord::Base
-  attr_accessible :name, :number, :local
+  attr_accessible :id, :name, :number, :local
   
   def self.search_by_name(name)
     Ramal.where('name like ?', name + '%')

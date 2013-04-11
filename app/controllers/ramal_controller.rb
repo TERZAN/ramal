@@ -1,9 +1,13 @@
 class RamalController < ApplicationController
 
 	def update
-		p 'atualizando o ramal'
 		ramal = Ramal.new(params[:ramal])
-		p ramal
+		@ramal = Ramal.find(ramal.id)
+		@ramal.update_attributes(params[:ramal])
+		respond_to do |format|
+      		format.html 
+      		format.json { render json: @ramal }
+      	end
 	end
 
 	def requestramal 

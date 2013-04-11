@@ -1,4 +1,3 @@
-
 $('#search_bn').click(function() {
 	//console.log('Respondeu');
 	//console.log($("#term").val());
@@ -38,8 +37,9 @@ $.build_result = function(json) {
 };
 
 $.build_result_edit = function(json) {
+	$('#id_body_edit_result').empty();
 	$.each(json, function(index,item) {
-		$('#id_body_edit_result').append("<tr>");
+		$('#id_body_edit_result').append("<tr id=id_tr_" + item.id  + ">");
 		$('#id_body_edit_result').append("<td>#</td>");
 		$('#id_body_edit_result').append("<td>" + item.name + "</td>");
 		$('#id_body_edit_result').append("<td>" + item.number + "</td>");
@@ -72,12 +72,15 @@ $("#id_button_submit").click(function() {
 	var elements = $("#id_form_ramal_update").serialize();
 	console.log(elements);
 	$.ajax({
-        url: url_update, 
+        url: url_update,
         //data: {name: $("id_input_name").val(), number: $("id_input_number").val(), local: $("id_input_local").val()},
         data: elements,
         dataType: "JSON", 
         type: "POST"
     }).success(function(json){
         console.log("Requisicao enviada com sucesso");
+        var id = json.id;
+        
+
     });
 });

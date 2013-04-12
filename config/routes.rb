@@ -1,11 +1,13 @@
 Ramais::Application.routes.draw do
 
+  
   root :to => 'search#index'
 
   get "search/find"
   get "search/index"
 
   #itens to edit
+  #get "ramal/new"
   get "ramal/list"
   get "ramal/update"
   get "ramal/requestramal"

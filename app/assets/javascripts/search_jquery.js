@@ -32,6 +32,17 @@ $.build_result = function(json) {
 	});
 };
 
+$.grid_reload = function() {
+	var url = "/search/search_ramal"
+	$.ajax({
+		type: "POST",
+		url: url, 
+		data: {busca: $("#term").val()}
+	}).done(function(json) {
+		$.build_result_edit(json);
+	});
+};
+
 $.build_result_edit = function(json) {
 	$('#id_body_edit_result').empty();
 	$.each(json, function(index,item) {
@@ -47,9 +58,6 @@ $.build_result_edit = function(json) {
 
 $(document).on("click", ".btn-info", function() {
 	var url_request = "/ramal/requestramal"
-
-	$("#message").alert_message("oTeste teste teste");
-
 	$.ajax({
         url: url_request, 
         data: {id:$(this).attr("id")},
@@ -66,24 +74,35 @@ $(document).on("click", ".btn-info", function() {
 });
 
 $(document).on("click", ".btn-danger", function() {
+	var id_ramal = $(this).attr("id");
+	$().confirm({title: "Atenção",
+		 message: " Deseja remover o ramal selecionado  ?"},
+		function() {
+			console.log("Confirmou");
+			$.remover_ramal(id_ramal);
+			$.grid_reload();
+
+	});
+});
+
+$.remover_ramal = function(id_ramal) {
 	var url_request = "/ramal/deleteramal";	
 	$.ajax({
         url: url_request, 
-        data: {id:$(this).attr("id")},
+        data: {id: id_ramal},
         dataType: "JSON", 
         type: "DELETE"
     }).success(function(json){
-        
+        console.log("ramal removido");
     }).error(function(json) {
     	console.log("erro ao remover");
     });
-});
+};
 
 $("#id_button_submit").click(function() {
 	var url_update = "/ramal/update";
 	//$("#id_form_ramal_update").submit();
 	var elements = $("#id_form_ramal_update").serialize();
-	console.log(elements);
 	$.ajax({
         url: url_update,
         data: elements,

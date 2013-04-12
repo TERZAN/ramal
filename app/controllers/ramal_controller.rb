@@ -27,4 +27,12 @@ class RamalController < ApplicationController
       	end
 	end
 
+	def new
+		@ramal = Ramal.new 
+		respond_to do |format|
+			format.html 
+			format.json {render json: @ramal}
+		end  
+	end 
+
 end

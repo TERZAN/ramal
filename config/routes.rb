@@ -1,6 +1,5 @@
 Ramais::Application.routes.draw do
 
-  
   root :to => 'search#index'
 
   get "search/find"
@@ -8,15 +7,16 @@ Ramais::Application.routes.draw do
 
   #itens to edit
   #get "ramal/new"
-  get "ramal/list"
-  get "ramal/update"
-  get "ramal/requestramal"
+  get "ramals/list"
+  get "ramals/update"
+  get "ramals/requestramal"
+  get "ramals/new"
 
   post "search/search_ramal"
+  post "ramals/update"
+  post "ramals/save"
   
-  post "ramal/update"
-  
-  delete "ramal/deleteramal"
+  delete "ramals/deleteramal"
   
 
   # The priority is based upon order of creation:

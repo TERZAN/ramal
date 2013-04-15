@@ -143,21 +143,13 @@ $("#id_form_ramal_create").submit(function() {
 		data: result,
 		dataType: "json"
 	}).success(function(json) {
-		if(json == "ramal_existente") {
-			out = false;
-		} else {
-			out = true;
-		}
-	});
-	
-	console.log(out);
-
-	if(out) {
+		out = true;
+			
 		$().confirm({title: "Confirmação",
-		 	message: "Atenção:<br>Ramal salvo com sucesso<br>" + 
-		 	"Deseja ir para a tela de consulta?",
-		 	primary: "Sim",
-		 	secundary: "Não"
+				message: "Atenção:<br>Ramal salvo com sucesso<br>" + 
+		 		"Deseja ir para a tela de consulta?",
+		 		primary: "Sim",
+		 		secundary: "Não"
 		},
 		function() {
 			$(location).attr('href','/');
@@ -167,18 +159,19 @@ $("#id_form_ramal_create").submit(function() {
 			$("#id_input_name").val("");
 			$("#id_input_number").val("");
 			$("#id_input_local").val("");
-		});
-	} else {
+		}); 
+	}).error(function(request, error) {
+		out = false;
 		$().confirm({title: "Conflito de ramal",
-			 	message: "Atenção:<br>O ramal já está cadastrado. <br>",
-			 	primary: "Ok",
-			 	secundary: ""
-			},
-			function() {
-			
-			});
-	}
-
+		 	message: "Atenção:<br>O ramal já está cadastrado. <br>",
+		 	primary: "Ok",
+		 	secundary: ""
+		},
+		function() {
+		
+		});
+	});
+	
 	return out;
 });
 

@@ -38,17 +38,16 @@ class RamalsController < ApplicationController
 	def save
 		@ramal = Ramal.new(params[:ramal])
 		size = Ramal.where("number = ?", @ramal.number).size()
-		p size 
 
 		if(size == 0) 
 			respond_to do |format|
 				if @ramal.save
-        			format.json { render json: "true"}
+        			format.json { render json: true}
       			end
       		end
 		else
 			respond_to do |format|
-				format.json { render json: "ramal_existente" }
+				format.json { render json: 'ramal_existente' }
 			end
 		end
 	end 
